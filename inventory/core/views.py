@@ -12,4 +12,4 @@ def inventory(request):
         'text': f'*Room:* {room}\nAll out of everything.',
     })
 
-    return HttpResponse(data, content_type='text/plain')
+    return HttpResponse(data, content_type='application/json')
