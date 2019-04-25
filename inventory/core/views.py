@@ -6,8 +6,7 @@ import json
 
 # Create your views here.
 def inventory(request):
-    breakpoint()
-    room = request.POST['room']
+    room = request.POST['text'].split()[0]
 
     data = json.dumps({
         'text': f'*Room:* {room}\nAll out of everything.',
