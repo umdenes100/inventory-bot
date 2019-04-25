@@ -6,7 +6,7 @@ import json
 
 # Create your views here.
 def inventory(request):
-    print(request.data)
+    print(request)
 
     data = json.dumps({
         'type': 'banana',
