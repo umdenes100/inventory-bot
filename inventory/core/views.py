@@ -6,10 +6,10 @@ import json
 
 # Create your views here.
 def inventory(request):
-    print(request)
+    room = request.POST['room']
 
     data = json.dumps({
-        'type': 'banana',
+        'text': f'*Room:* {room}\nAll out of everything.',
     })
 
-    return HttpResponse(data, content_type='application/json')
+    return HttpResponse(data, content_type='text/plain')
