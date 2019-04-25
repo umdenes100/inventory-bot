@@ -15,7 +15,7 @@ def inventory(request):
 
     df = pd.read_excel(SPREADSHEET_URL)
     text = f'*Room:* {room}\n*Status*: All out of everything.\n'
-    text += tabulate(df, tablefmt="pipe", headers="keys")
+    text += tabulate(df['Item', room], tablefmt="pipe", headers="keys")
 
     data = json.dumps({'text': text})
 
