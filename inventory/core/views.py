@@ -9,7 +9,7 @@ def inventory(request):
     room = request.POST['text'].split()[0]
 
     data = json.dumps({
-        'text': f'*Room:* {room}\nAll out of everything.',
+        'text': f'*Room:* {room}\n*Status*: All out of everything.\n',
     })
 
     return HttpResponse(data, content_type='application/json')
