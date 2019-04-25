@@ -11,15 +11,12 @@ SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTFcaWz8ylGNa
 # Create your views here.
 def inventory(request):
     room = int(request.POST['text'].split()[0])
-    breakpoint()
 
     file = pd.read_excel(SPREADSHEET_URL)
 
     text = f'*Room:* {room}\n*Status*: All out of everything.\n'
-    text += file[['Item', room]]
+    text += str(file[['Item', room]])
 
-    data = json.dumps({
-        'text': text,
-    })
+    data = json.dumps({'text': text})
 
     return HttpResponse(data, content_type='application/json')
