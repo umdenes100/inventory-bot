@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from tabulate import tabulate
 import pandas as pd
 import json
 
@@ -12,10 +13,9 @@ SPREADSHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTFcaWz8ylGNa
 def inventory(request):
     room = int(request.POST['text'].split()[0])
 
-    file = pd.read_excel(SPREADSHEET_URL)
-
+    df = pd.read_excel(SPREADSHEET_URL)
     text = f'*Room:* {room}\n*Status*: All out of everything.\n'
-    text += str(file[['Item', room]])
+    text += tabulate(df, tablefmt="pipe", headers="keys")
 
     data = json.dumps({'text': text})
 

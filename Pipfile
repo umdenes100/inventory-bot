@@ -11,6 +11,8 @@ gspread = "*"
 oauth2client = "*"
 pandas = "*"
 xlrd = "*"
+tabulate = "*"
+python-tabulate = "*"
 
 [requires]
 python_version = "3.7"
