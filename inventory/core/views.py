@@ -6,6 +6,7 @@ import json
 
 # Create your views here.
 def inventory(request):
+    breakpoint()
     room = request.POST['room']
 
     data = json.dumps({
